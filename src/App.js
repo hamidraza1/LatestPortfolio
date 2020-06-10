@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { ReactComponent as Background } from "./components/background-sm.svg";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+    <div className="w-full">
+      <Background />
+      <main className="px-5">
+        <h1 className="text-3xl font-bold text-mygray ">Zargham Khan</h1>
+        <p className="text-xs text-justify text-mygray">
+          Passion for writing computer programs lead me from Engineering to Web
+          Development. I'm specialized in HTML/CSS and JavaScript on the
+          frontend, but I'm pretty comfortable with ReactJS, NodeJS, ExpressJS,
+          MongoDB, Firebase.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </main>
     </div>
   );
 }
