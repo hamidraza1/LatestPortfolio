@@ -37,3 +37,9 @@
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE 10+ */
 }
+
+@media (min-width: 768px) {
+  .header-limit {
+    height: 50vh;
+  }
+}

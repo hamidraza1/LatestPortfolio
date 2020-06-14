@@ -5,6 +5,11 @@ module.exports = {
   important: false,
   separator: ":",
   theme: {
+    extend: {
+      padding: {
+        "3/4": "75%",
+      },
+    },
     screens: {
       sm: "640px",
       md: "768px",
@@ -20,7 +25,7 @@ module.exports = {
 
       mygray: "#4A4A4A",
       lightPurple: "#CFBBF8",
-      darkPurple: "#9A7DEF",
+      darkPurple: "#7B5FCE",
 
       gray: {
         100: "#f7fafc",
@@ -153,6 +158,8 @@ module.exports = {
       "48": "12rem",
       "56": "14rem",
       "64": "16rem",
+      "72": "18rem",
+      "96": "24rem",
     },
     backgroundColor: (theme) => theme("colors"),
     backgroundOpacity: (theme) => theme("opacity"),
@@ -349,6 +356,7 @@ module.exports = {
       "5xl": "64rem",
       "6xl": "72rem",
       full: "100%",
+      "2/5": "40%",
       ...breakpoints(theme("screens")),
     }),
     minHeight: {
