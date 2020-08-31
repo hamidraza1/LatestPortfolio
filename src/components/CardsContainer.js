@@ -17,29 +17,34 @@ class CardsContainer extends Component {
 
     this.images = [
       {
+        id: 7,
+        src: "/images/project7.jpg",
+        link: "https://elastic-haibt-6c19a8.netlify.app/",
+      },
+      {
         id: 1,
+        src: "/images/project6.jpg",
+        link: "https://hopeful-kalam-d54694.netlify.app/",
+      },
+      {
+        id: 2,
         src: "/images/project1.jpg",
         link: "https://zarghamkhandev.github.io/Werkcation-Real-Estate/",
       },
       {
-        id: 2,
+        id: 3,
         src: "/images/project2.jpg",
         link: "https://zarghamkhandev.github.io/Job-Listing-App/",
       },
       {
-        id: 3,
+        id: 4,
         src: "/images/project3.jpg",
         link: "https://zarghamkhandev.github.io/Social-Media-Dashboard/",
       },
       {
-        id: 4,
+        id: 5,
         src: "/images/project4.jpg",
         link: "https://zarghamkhandev.github.io/psdtohtml2/",
-      },
-      {
-        id: 5,
-        src: "/images/project5.jpg",
-        link: "https://zarghamkhandev.github.io/Netflix-Clone/",
       },
       {
         id: 6,
@@ -48,18 +53,21 @@ class CardsContainer extends Component {
       },
     ];
   }
-  componentDidMount() {
-    this.width = this.inner.current.clientWidth;
-    this.outerWidth = this.outer.current.clientWidth;
 
-    this.numberOfVisibleCards = Math.floor(this.outerWidth / (this.width + 16));
-    console.log(this.width);
-    console.log(this.outerWidth);
-    console.log(this.numberOfVisibleCards);
+  componentDidMount() {
+    this.adjustSize();
+    window.addEventListener("resize", this.adjustSize);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.adjustSize);
+  }
+  adjustSize = () => {
+    this.width = this.inner.current.clientWidth;
+    this.outerWidth = this.outer.current.clientWidth;
+    this.numberOfVisibleCards = Math.floor(this.outerWidth / (this.width + 16));
+  };
   rightScrollHandler = () => {
-    console.log(this.state.position);
     if (this.state.position < this.images.length - this.numberOfVisibleCards) {
       this.setState({ position: this.state.position + 1 });
     }
@@ -78,17 +86,18 @@ class CardsContainer extends Component {
           initial={{ scrollLeft: 0 }}
           animate={{ scrollLeft: this.state.position * (this.width + 16) }}
           transition={{ ease: "easeInOut" }}
-          ref={this.outer}
-        >
+          ref={this.outer}>
           {this.images.map((image) => {
             return (
               <div
                 className="p-1 bg-white rounded-lg shadow-md flex-shrink-0 w-48 mx-2 mb-2 md:w-40 lg:w-48 xl:w-64"
                 key={image.id}
-                ref={this.inner}
-              >
+                ref={this.inner}>
                 <div className="relative pb-3/4 ">
-                  <a href={image.link} target="_blank">
+                  <a
+                    href={image.link}
+                    target="_blank"
+                    rel="noopener noreferrer">
                     <img
                       src={process.env.PUBLIC_URL + image.src}
                       alt="project1"
@@ -109,8 +118,7 @@ class CardsContainer extends Component {
           </span>
           <span
             className="px-1 cursor-pointer"
-            onClick={this.rightScrollHandler}
-          >
+            onClick={this.rightScrollHandler}>
             <AiOutlineRightCircle
               size={24}
               className="cursor-pointer hover:scale-125 transform duration-300"
