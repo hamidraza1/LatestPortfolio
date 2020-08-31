@@ -4,7 +4,7 @@ import { ReactComponent as FooterMd } from "../assets/svgs/footer-md.svg";
 import { FaLinkedin, FaGithubSquare } from "react-icons/fa";
 import ContactContainer from "./ContactContainer";
 const Footer = (props) => {
-    return ( <footer className="mt-10 absolute md:bottom-0 w-full md:flex md:flex-row-reverse md:flex ">
+    return ( <footer className="mt-10 md:bottom-0 w-full md:flex md:flex-row-reverse md:flex ">
     <ContactContainer />
     <div className="mt-4 md:w-3/4 relative md:border-gray-600 md:border-r-2 md:mt-0 md:h-48 md:flex md:flex-row-reverse ">
       <div className="text-white flex flex-row absolute bottom-0 mb-4 ml-4 md:right-0 md:text-mygray md:flex-col md:top-0 md:mr-2">
