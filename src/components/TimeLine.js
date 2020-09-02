@@ -6,37 +6,72 @@ import "../assets/styles/timeline.css";
 const TimeLine = () => {
   const containerRef = React.createRef();
   const data = [
+
     {
-      id: 0,
-      title: "Started learning Html/css",
-      date: "Feb 20, 2020",
+     
+      title: "Started learning Html/CSS",
+      date: "Jan 22, 2020",
       svg: "undraw_static_website_0107",
     },
     {
-      id: 1,
-      title: "Started learning Html/css",
-      date: "Feb 20, 2020",
-      svg: "undraw_static_website_0107",
-      parentId: 0,
+     
+      title: "Created First Webpage",
+      date: "Feb 09, 2020",
+      svg: "undraw_web_developer_p3e5",
+      link: "https://zarghamkhandev.github.io/psdtohtml2/",
+      linkText: "Open Here"
     },
     {
-      id: 2,
-      title: "Started learning Html/css",
-      date: "Feb 20, 2020",
-      svg: "undraw_static_website_0107",
-      parentId: 1,
+ 
+      title: "Started Learning Javascript",
+      date: "Feb 13, 2020",
+      svg: "undraw_code_review_l1q9",
+  
     },
     {
-      id: 3,
-      title: "Started learning Html/css",
-      date: "Feb 20, 2020",
-      svg: "undraw_static_website_0107",
-      parentId: 2,
+
+      title: "Created Github Account",
+      date: "Feb 21, 2020",
+      svg: "undraw_developer_activity_bv83",
+
+    },
+    {
+
+      title: "My First Javascript App",
+      date: "Apr 8, 2020",
+      svg: "undraw_time_management_30iu",
+      link: "https://nostalgic-hodgkin-b8da7a.netlify.app/",
+      linkText:"Click Here"
+
+    },
+    {
+
+      title: "Started Learning React",
+      date: "Apr 18, 2020",
+      svg: "undraw_react_y7wq",
+
     },
   ];
+
+  data.reverse();
+
+  data.forEach((item,i)=>{
+    if(i===0){
+      item.id = i
+    }else{
+      item.id= i;
+      item.parentId = i-1;
+    }
+  })
+
+
+
+
   const createChart = () => {
+    const linkHeight = +getComputedStyle(document.documentElement).getPropertyValue('--linkHeight');
+    console.log(linkHeight)
     const treeWidth = containerRef.current.getBoundingClientRect().width;
-    const treeHeight = (data.length - 1) * 200;
+    const treeHeight = (data.length - 1) * linkHeight;
     containerRef.current.style.height = treeHeight + "px";
     const cover = d3.select(containerRef.current);
     cover.select("div").remove();
@@ -147,13 +182,21 @@ const TimeLine = () => {
       .attr("class", "flex-1 textDiv flex flex-col justify-center");
     textContainer
       .append("p")
-      .attr("class", "text-darkPurple text-base font-medium mx-auto")
+      .attr("class", "text-darkPurple text-xxs sm:text-sm md:text-base font-medium mx-auto")
       .text((d) => d.data.title);
     textContainer
       .append("p")
-      .attr("class", "text-mygray text-sm font-medium mx-auto")
+      .attr("class", "text-mygray text-xxs sm:text-sm font-medium mx-auto mt-1")
       .text((d) => d.data.date);
-
+    
+    textContainer
+      .append("a")
+      .attr("href",d=> d.data.link ? d.data.link:"")
+      .attr("target","_blank")
+      .attr("class", "text-mygray text-xxs sm:text-sm font-medium mx-auto underline mt-0 sm:mt-2 md:mt-4 lg:mt-6")
+      .text((d) => d.data.linkText? d.data.linkText : "");
+    
+    
     // append svgs to boxes
   };
 
