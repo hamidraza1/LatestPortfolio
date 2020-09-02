@@ -6,70 +6,96 @@ import "../assets/styles/timeline.css";
 const TimeLine = () => {
   const containerRef = React.createRef();
   const data = [
-
     {
-     
       title: "Started learning Html/CSS",
       date: "Jan 22, 2020",
       svg: "undraw_static_website_0107",
     },
     {
-     
       title: "Created First Webpage",
       date: "Feb 09, 2020",
       svg: "undraw_web_developer_p3e5",
       link: "https://zarghamkhandev.github.io/psdtohtml2/",
-      linkText: "Open Here"
+      linkText: "Open Here",
     },
     {
- 
       title: "Started Learning Javascript",
       date: "Feb 13, 2020",
       svg: "undraw_code_review_l1q9",
-  
     },
     {
-
       title: "Created Github Account",
       date: "Feb 21, 2020",
       svg: "undraw_developer_activity_bv83",
-
+      link: "https://github.com/zarghamkhandev",
+      linkText: "Check my Profile",
     },
     {
-
       title: "My First Javascript App",
       date: "Apr 8, 2020",
       svg: "undraw_time_management_30iu",
       link: "https://nostalgic-hodgkin-b8da7a.netlify.app/",
-      linkText:"Click Here"
-
+      linkText: "Click Here",
     },
     {
-
       title: "Started Learning React",
       date: "Apr 18, 2020",
       svg: "undraw_react_y7wq",
-
+    },
+    {
+      title: "React App using Tailwindcss",
+      date: "May 26, 2020",
+      svg: "undraw_tailwind_css_1egw",
+      link: "https://zarghamkhandev.github.io/Job-Listing-App/",
+      linkText: "Open Here",
+    },
+    {
+      title: "Created porfolio Website",
+      date: "June 14, 2020",
+      svg: "undraw_portfolio_website_lidw",
+    },
+    {
+      title: "Completed First Freelance Task",
+      date: "July 15, 2020",
+      svg: "undraw_confirmation_2uy0",
+      link: "https://hopeful-kalam-d54694.netlify.app/",
+      linkText:"Check it Out"
+    },
+    {
+      title: "Started Learning Angular & D3js",
+      date: "July 21, 2020",
+      svg: "undraw_JavaScript_frameworks_8qpc",
+    },
+    {
+      title: "First Angular App",
+      date: "August 24, 2020",
+      svg: "undraw_setup_analytics_8qkl",
+      link: "https://elastic-haibt-6c19a8.netlify.app/",
+      linkText:"Check it Out"
+    },
+    {
+      title: "Landed job as student assistant",
+      date: "Sep 1, 2020",
+      svg: "undraw_Beer_celebration_cefj",
     },
   ];
 
   data.reverse();
 
-  data.forEach((item,i)=>{
-    if(i===0){
-      item.id = i
-    }else{
-      item.id= i;
-      item.parentId = i-1;
+  data.forEach((item, i) => {
+    if (i === 0) {
+      item.id = i;
+    } else {
+      item.id = i;
+      item.parentId = i - 1;
     }
-  })
-
-
-
+  });
 
   const createChart = () => {
-    const linkHeight = +getComputedStyle(document.documentElement).getPropertyValue('--linkHeight');
-    console.log(linkHeight)
+    const linkHeight = +getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--linkHeight");
+    console.log(linkHeight);
     const treeWidth = containerRef.current.getBoundingClientRect().width;
     const treeHeight = (data.length - 1) * linkHeight;
     containerRef.current.style.height = treeHeight + "px";
@@ -182,21 +208,29 @@ const TimeLine = () => {
       .attr("class", "flex-1 textDiv flex flex-col justify-center");
     textContainer
       .append("p")
-      .attr("class", "text-darkPurple text-xxs sm:text-sm md:text-base font-medium mx-auto")
+      .attr(
+        "class",
+        "text-darkPurple text-center text-xxs sm:text-sm md:text-base inline-block font-medium mx-auto"
+      )
       .text((d) => d.data.title);
     textContainer
       .append("p")
-      .attr("class", "text-mygray text-xxs sm:text-sm font-medium mx-auto mt-1")
+      .attr(
+        "class",
+        "text-mygray text-xxs sm:text-sm font-medium inline-block mx-auto mt-1"
+      )
       .text((d) => d.data.date);
-    
+
     textContainer
       .append("a")
-      .attr("href",d=> d.data.link ? d.data.link:"")
-      .attr("target","_blank")
-      .attr("class", "text-mygray text-xxs sm:text-sm font-medium mx-auto underline mt-0 sm:mt-2 md:mt-4 lg:mt-6")
-      .text((d) => d.data.linkText? d.data.linkText : "");
-    
-    
+      .attr("href", (d) => (d.data.link ? d.data.link : ""))
+      .attr("target", "_blank")
+      .attr(
+        "class",
+        "text-mygray text-xxs sm:text-sm font-medium mx-auto inline-block underline mt-0 sm:mt-2 md:mt-4 lg:mt-6"
+      )
+      .text((d) => (d.data.linkText ? d.data.linkText : ""));
+
     // append svgs to boxes
   };
 
