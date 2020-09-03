@@ -74,7 +74,7 @@ const TimeLine = () => {
       linkText:"Check it Out"
     },
     {
-      title: "Landed job as student assistant",
+      title: "Landed job as working student",
       date: "Sep 1, 2020",
       svg: "undraw_Beer_celebration_cefj",
     },
