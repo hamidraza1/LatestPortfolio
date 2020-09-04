@@ -78,6 +78,11 @@ const TimeLine = () => {
       date: "Sep 1, 2020",
       svg: "undraw_Beer_celebration_cefj",
     },
+    {
+      title: "Started Learning MySQL",
+      date: "Sep 4, 2020",
+      svg: "undraw_server_status_5pbv",
+    },
   ];
 
   data.reverse();
