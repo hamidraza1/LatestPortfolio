@@ -87,6 +87,8 @@ const TimeLine = () => {
       title: "Full Stack App with Sequelize",
       date: "Sep 11, 2020",
       svg: "undraw_To_the_stars_qhyy",
+      link: "https://code-gig-123.herokuapp.com/",
+      linkText: "Check here"
     },
   ];
 
