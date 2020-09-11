@@ -83,6 +83,11 @@ const TimeLine = () => {
       date: "Sep 4, 2020",
       svg: "undraw_server_status_5pbv",
     },
+    {
+      title: "Full Stack App with Sequelize",
+      date: "Sep 11, 2020",
+      svg: "undraw_To_the_stars_qhyy",
+    },
   ];
 
   data.reverse();
