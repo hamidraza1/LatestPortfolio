@@ -19,37 +19,42 @@ class CardsContainer extends Component {
       {
         id: 7,
         src: "/images/project7.jpg",
-        link: "https://elastic-haibt-6c19a8.netlify.app/",
+        link: "https://www.manchesterchemist.shop/",
+      },
+      {
+        id: 8,
+        src: "/images/project8.jpg",
+        link: "https://relaxed-murdock-fccc85.netlify.app/",
       },
       {
         id: 1,
         src: "/images/project6.jpg",
-        link: "https://hopeful-kalam-d54694.netlify.app/",
+        link: "https://hamidraza1.github.io/Awards/",
       },
       {
         id: 2,
         src: "/images/project1.jpg",
-        link: "https://zarghamkhandev.github.io/Werkcation-Real-Estate/",
+        link: "https://hamidraza1.github.io/",
       },
       {
         id: 3,
         src: "/images/project2.jpg",
-        link: "https://zarghamkhandev.github.io/Job-Listing-App/",
+        link: "https://hamidraza1.github.io/Shield/",
       },
       {
         id: 4,
         src: "/images/project3.jpg",
-        link: "https://zarghamkhandev.github.io/Social-Media-Dashboard/",
+        link: "https://hamidraza1.github.io/MindmapNew/",
       },
       {
         id: 5,
         src: "/images/project4.jpg",
-        link: "https://zarghamkhandev.github.io/psdtohtml2/",
+        link: "https://hamidraza1.github.io/job-listing-app/",
       },
       {
         id: 6,
         src: "/images/project5.jpg",
-        link: "https://zarghamkhandev.github.io/Netflix-Clone/",
+        link: "https://hamidraza1.github.io/chatdashboard/",
       },
     ];
   }
@@ -86,18 +91,21 @@ class CardsContainer extends Component {
           initial={{ scrollLeft: 0 }}
           animate={{ scrollLeft: this.state.position * (this.width + 16) }}
           transition={{ ease: "easeInOut" }}
-          ref={this.outer}>
+          ref={this.outer}
+        >
           {this.images.map((image) => {
             return (
               <div
                 className="p-1 bg-white rounded-lg shadow-md flex-shrink-0 w-48 mx-2 mb-2 md:w-40 lg:w-48 xl:w-64"
                 key={image.id}
-                ref={this.inner}>
+                ref={this.inner}
+              >
                 <div className="relative pb-3/4 ">
                   <a
                     href={image.link}
                     target="_blank"
-                    rel="noopener noreferrer">
+                    rel="noopener noreferrer"
+                  >
                     <img
                       src={process.env.PUBLIC_URL + image.src}
                       alt="project1"
@@ -118,7 +126,8 @@ class CardsContainer extends Component {
           </span>
           <span
             className="px-1 cursor-pointer"
-            onClick={this.rightScrollHandler}>
+            onClick={this.rightScrollHandler}
+          >
             <AiOutlineRightCircle
               size={24}
               className="cursor-pointer hover:scale-125 transform duration-300"
