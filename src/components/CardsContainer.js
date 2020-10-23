@@ -19,7 +19,7 @@ class CardsContainer extends Component {
       {
         id: 7,
         src: "/images/project7.jpg",
-        link: "https://www.manchesterchemist.shop/",
+        link: "https://thirsty-kare-c23c80.netlify.app/",
       },
       {
         id: 8,
